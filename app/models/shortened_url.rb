@@ -13,16 +13,15 @@ class ShortenedUrl < ApplicationRecord
            source: :user
 
   def num_clicks
-    Visit.where(shortened_url_id: id).count
+    visits.size
   end
 
   def num_uniques
-    Visit.where(shortened_url_id: id).count('DISTINCT user_id')
+    visitors.size
   end
 
   def num_recent_uniques
-    Visit.where(shortened_url_id: id, created_at: 10.minutes.ago..Time.current)
-         .count('DISTINCT user_id')
+    visitors.where(created_at: 10.minutes.ago..Time.current).size
   end
 
   def self.random_code
