@@ -1,0 +1,9 @@
+Style/StringLiterals:
+  Enabled: false
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+Style/NumericPredicate:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
